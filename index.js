@@ -20,7 +20,9 @@ app.use(express.json());
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors({
-    origin:"http://localhost:5173",
+    origin: process.env.NODE_ENV === 'production' 
+        ? ['https://car-rentel-web.vercel.app', 'http://localhost:5173'] 
+        : 'http://localhost:5173',
     credentials: true,
 }))
 
