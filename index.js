@@ -19,10 +19,11 @@ const authenticateJWT = require("./middleware/authenticateJWT");
 app.use(express.json());
 
 app.use(bodyParser.urlencoded({extended: true}));
+
 app.use(cors({
-    origin: "*",
-    credentials: true,
-}))
+  origin: true, // Allow all origins
+  credentials: true // Allow credentials if needed
+}));
 
 app.use(cookieParser());
 
