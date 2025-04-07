@@ -20,9 +20,7 @@ app.use(express.json());
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors({
-    origin: process.env.NODE_ENV === 'production' 
-        ? ['https://car-rentel-web.vercel.app', 'http://localhost:5173'] 
-        : 'http://localhost:5173',
+    origin: "*",
     credentials: true,
 }))
 
@@ -32,9 +30,6 @@ require("./db/connect");
 
 const Client = require('./models/clientDB');
 const Reservation = require('./models/reservationDB');
-
-
-
 
 app.post('/api/register',async (req,res)=>{
     const {username} = req.body;
